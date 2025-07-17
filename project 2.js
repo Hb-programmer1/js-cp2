@@ -7,7 +7,11 @@ for (let i = 0; i < c.length; i++) {
 }
     return r
 }
-///////////////////
+//
+
+by
+
+
 
 function countt(c){
 var s=0 //nombre de caracteres d'une chaine
@@ -21,20 +25,20 @@ for (let i = 0; i < c.length; i++) {
 }// on peut faire juste return c.length
 //////////////////////////////////////////
 function capitalize(p){
-    p=p+" "
-p=p[0].toUpperCase()+substring(1,p.length)
-var t = p.indexOf(" ");
-while(t!=-1){
-p=substring(0,t+1)+p[t+1].toUpperCase()+substring(t+2,p.length)
+let l=p.split(" ");
+var c,s="";
+for(let i=0;i<l.length;i++){
+c=l[i][0].toUpperCase()+l[i].substring(1,l[i].length)
+  s+=c+" ";
+}
+return s;
+}
 
-}
-return p.substring(0,p.length-1)
-}
 ///////////////////////////////
-function minmax(l){
-var mn=0; //variable de minimumu
-var mx=0; // le maximum
-for (let i = 0; i < l.length; i++) {
+function minMax(l){
+var mn=l[0]; //variable de minimumu
+var mx=l[0]; // le maximum
+for (let i = 1; i < l.length; i++) {
     if (l[i]>mx) mx=l[i];
     if (l[i]<mn) mn=l[i];
 }
@@ -60,21 +64,18 @@ return s
 
 }
 ////////////////////////////////////////////
-function filterarray(l){
-
-var lf; // list filtree
-var j // taille de lf
+function filterArray(l){
+ let lf=[];
 for (let i = 0; i < l.length; i++) {
-    if(!( isNaN(l[i]) )){
-        lf[j]=l[i];
-        j++;
+    if(typeof l[i] === "number"){
+        lf.push(l[i]);
     }
     
 }
-
-
     return lf;
 }
+
+
 //////////////////////////////:
 function fact(n){
 var f=1;
@@ -85,15 +86,17 @@ while(n!=0){
     return f
 }
 ///////////////////////////
-function primecheck(n){
-f=n%2!=0;
-i=3
-    while(f && i<=Math.floor(i<n/2) ){
-        f=n%i!=0;
-        i++
+function prime(n) {
+
+	if (n <= 1 || n%2===0) return false;
+	
+    for (let i = 2; i <= Math.sqrt(n/2); i++) {
+        if (n % i === 0) return false;
     }
-    return f
+    return true;
+
 }
+
 /////////////////////////////
 function fibonacci(n) {
     seq = [];
