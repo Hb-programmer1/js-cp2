@@ -21,21 +21,18 @@ x.style.color='red';
 
 }
 function total() {
-  const priceInputs = document.getElementsByClassName('price');
-  let t = 0;
+  var s = 0;
+  var t = document.getElementById('t');
+  const l = document.getElementsByClassName('unit-price');
+  const q = document.getElementsByClassName('quantity');
 
-  for (let i = 0; i < priceInputs.length; i++) {
-    const value = parseFloat(priceInputs[i].value);
-    t += value;
-  }
+  for (let i = 0; i < l.length; i++) {
+    
+  
+    s += parseFloat(l[i].textContent) * parseInt(q[i].textContent);
+  }  
+  
 
-  document.getElementById('t').textContent = t.toFixed(2);
+  t.textContent= s + "$";
 }
 
-// Add event listeners to each input with class "price"
-const priceInputs = document.getElementsByClassName('price');
-for (let i = 0; i < priceInputs.length; i++) {
-  priceInputs[i].addEventListener('input', t);
-}
-
-// Call once to set initial t
